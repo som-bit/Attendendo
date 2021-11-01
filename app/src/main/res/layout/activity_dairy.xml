@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DairyActivity">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/dairy_Toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#00838F"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout_Entries"
+        android:background="#8BC34A"
+        android:duplicateParentState="false"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/dairy_Toolbar"
+        app:tabIndicatorColor="@android:color/holo_red_light"
+        app:tabTextColor="@android:color/white"
+        app:layout_editor_absoluteX="0dp"
+        >
+
+    <com.google.android.material.tabs.TabItem
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your Entries"/>
+
+    <com.google.android.material.tabs.TabItem
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Calender"/>
+
+    </com.google.android.material.tabs.TabLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView_Entries"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tabLayout_Entries"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <CalendarView
+        android:id="@+id/calenderView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:background="#CDDC39"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tabLayout_Entries"
+        />
+
+    <TextView
+        android:layout_width="132dp"
+        android:layout_height="6dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBaseline_toBottomOf="@id/calenderView"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="479dp"
+        tools:text="textView" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

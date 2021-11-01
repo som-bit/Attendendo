@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menuAction_NewEntry"
+        android:enabled="true"
+        android:icon="@drawable/ic_launcher_add_foreground"
+        android:iconTint="@android:color/holo_green_light"
+        android:visible="true"
+        android:title="add"
+        app:showAsAction="always"/>
+
+</menu>
