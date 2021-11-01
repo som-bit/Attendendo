@@ -13,7 +13,7 @@ public class DBhelper extends SQLiteOpenHelper {
     // declering veriables and database attributes
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "DiaryEntry.db";
-    private static final String TABLE_ENRTIES = "entries";
+    private static final String TABLE_ENTRIES = "entries";
     private static final String KEY_ID = "id";
     private static final String KEY_TITLE = "title";
     private static final String KEY_DATE = "date";
@@ -26,13 +26,12 @@ public class DBhelper extends SQLiteOpenHelper {
 
     }
     //Creating Entries, insurting, uptade, delete
-    // concatenating the vlaues to creat a command
+    // concatenating the vlaues to create a command
 
-    private static final String SQL_CREATE_ENTRIES = "CREATE TABLE " + TABLE_ENRTIES + "(" + KEY_ID + "INTEGER_PRIMARY_KEY_AUTOINCREMENT"
-                                                        + KEY_DATE + "TEXT" + KEY_TITLE + "TEXT" + KEY_TEXT + "TEXT)";
+   private static final String SQL_CREATE_ENTRIES = " CREATE TABLE " + TABLE_ENTRIES + "(" + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_DATE + " TEXT" + KEY_TITLE + "TEXT" + KEY_TEXT + "TEXT )";
 
     // command for droping table if exist
-    private static final String SQL_DELETE_ENTRIES = "DROP TABLE IF EXISTS " + TABLE_ENRTIES;
+    private static final String SQL_DELETE_ENTRIES = "DROP TABLE IF EXISTS " + TABLE_ENTRIES;
 
     //Methode TO CREATE THE TABLE
     @Override
@@ -62,14 +61,14 @@ public class DBhelper extends SQLiteOpenHelper {
         values.put(KEY_DATE,diaryEntry.getDate());
         values.put(KEY_TITLE,diaryEntry.getTitle());
         values.put(KEY_TEXT,diaryEntry.getText());
-        db.insert(TABLE_ENRTIES,null,values);
+        db.insert(TABLE_ENTRIES,null,values);
         db.close();
     }
     public List<Entry> getAllEntryList () {
         List<Entry> entryList = new ArrayList<>();
 
 
-        String selectQuary = " SELECT * FROM " + TABLE_ENRTIES + " ORDER BY " + KEY_ID + " DESC ";
+        String selectQuary = " SELECT * FROM "+TABLE_ENTRIES+" ORDER BY '"+ KEY_ID +"' DESC ";
                SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuary,null);
         if (cursor.moveToFirst()){
