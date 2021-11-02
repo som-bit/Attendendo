@@ -35,6 +35,7 @@ public class DairyActivity extends AppCompatActivity {
         DairyAdapter adapter = new DairyAdapter(entries);
         recyclerView.setAdapter(adapter);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
+        recyclerView.setLayoutManager(linearLayoutManager);
         // Managing the action when tab esected
 
         TabLayout tabLayout = findViewById(R.id.tabLayout_Entries);
@@ -67,7 +68,7 @@ public class DairyActivity extends AppCompatActivity {
             }
         });
 
-        TextView textView = findViewById(R.id.dairyData);
+        TextView textView = findViewById(R.id.data_text);
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
@@ -88,6 +89,7 @@ public class DairyActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.menuAction_NewEntry:
                 Intent intent = new Intent(DairyActivity.this,DairyCreateEntry.class);
+                startActivity(intent);
             return true;
             default:
                 return super.onOptionsItemSelected(item);
