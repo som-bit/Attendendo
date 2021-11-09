@@ -30,13 +30,17 @@ public class DairyActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.dairy_Toolbar);
         RecyclerView recyclerView = findViewById(R.id.recyclerView_Entries);
         CalendarView calendarView = findViewById(R.id.calenderView);
+        calendarView.setVisibility(View.GONE);
+
+
+        //Taking all the entries from db
         DBhelper dBhelper = new DBhelper(this);
         entries = dBhelper.getAllEntryList();
         DairyAdapter adapter = new DairyAdapter(entries);
         recyclerView.setAdapter(adapter);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
         recyclerView.setLayoutManager(linearLayoutManager);
-        // Managing the action when tab esected
+        // Managing the action when tab executed
 
         TabLayout tabLayout = findViewById(R.id.tabLayout_Entries);
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {

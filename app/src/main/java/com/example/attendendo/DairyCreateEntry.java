@@ -35,11 +35,11 @@ public class DairyCreateEntry extends AppCompatActivity {
         builder.setMessage("Save Entry");
         builder.setPositiveButton("yes",(dialog, which) -> {
             // Taking the title input
-            TextInputEditText inputTitle = findViewById(R.id.Input_title);
+            TextInputEditText inputTitle = (TextInputEditText) findViewById(R.id.Input_title);
             String title = inputTitle.getText().toString();
 
             // Taking a text input
-            TextInputEditText inputText = findViewById(R.id.Input_Text);
+            TextInputEditText inputText = (TextInputEditText) findViewById(R.id.Input_Text);
             String text = inputText.getText().toString();
 
             Entry entry = Entry.createDairyEntry(DairyCreateEntry.this,title,text);
