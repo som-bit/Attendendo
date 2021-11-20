@@ -32,7 +32,6 @@ public class DairyActivity extends AppCompatActivity {
         CalendarView calendarView = findViewById(R.id.calenderView);
         calendarView.setVisibility(View.GONE);
 
-
         //Taking all the entries from db
         DBhelper dBhelper = new DBhelper(this);
         entries = dBhelper.getAllEntryList();

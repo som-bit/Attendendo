@@ -22,11 +22,9 @@ public class DairyAdapter extends RecyclerView.Adapter<DairyAdapter.ViewHolder> 
 
     }
 
-
-
     @NonNull
     @Override
-    public DairyAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         LayoutInflater inflater =  LayoutInflater.from(context);
         View entryView = inflater.inflate(R.layout.entry,parent,false);
@@ -35,7 +33,7 @@ public class DairyAdapter extends RecyclerView.Adapter<DairyAdapter.ViewHolder> 
     }
 
     @Override
-    public void onBindViewHolder(@NonNull DairyAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Entry dairyEntry = mEntries.get(position);
         TextView date = holder.date;
         date.setText(dairyEntry.getDate());
@@ -48,6 +46,7 @@ public class DairyAdapter extends RecyclerView.Adapter<DairyAdapter.ViewHolder> 
 
     @Override
     public int getItemCount() {
+
         return mEntries.size();
     }
 
@@ -69,6 +68,4 @@ public class DairyAdapter extends RecyclerView.Adapter<DairyAdapter.ViewHolder> 
             return textView;
         }
     }
-
-
 }

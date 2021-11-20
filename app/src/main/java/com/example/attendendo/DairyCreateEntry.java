@@ -65,7 +65,4 @@ public class DairyCreateEntry extends AppCompatActivity {
         DairyCreateEntry.this.finish();
 
     }
-
-
-
 }

@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DBhelper extends SQLiteOpenHelper {
-    // declering veriables and database attributes
+    // declaring variables and database attributes
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "DiaryEntry.db";
     private static final String TABLE_ENTRIES = "entries";
@@ -25,10 +25,12 @@ public class DBhelper extends SQLiteOpenHelper {
         super(context,DATABASE_NAME,null,DATABASE_VERSION);
 
     }
-    //Creating Entries, insurting, uptade, delete
-    // concatenating the vlaues to create a command
+    //Creating Entries, inserting, update, delete
+    // concatenating the values to create a command
 
-   private static final String SQL_CREATE_ENTRIES = " CREATE TABLE " + TABLE_ENTRIES + "(" + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_DATE + " TEXT" + KEY_TITLE + "TEXT" + KEY_TEXT + "TEXT )";
+    private static final String SQL_CREATE_ENTRIES = " CREATE TABLE " + TABLE_ENTRIES +
+            "(" + KEY_ID + "INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_DATE +" TEXT,"
+            + KEY_TITLE+ " TEXT,"+ KEY_TEXT +" TEXT)";
 
     // command for droping table if exist
     private static final String SQL_DELETE_ENTRIES = "DROP TABLE IF EXISTS " + TABLE_ENTRIES;
@@ -68,7 +70,7 @@ public class DBhelper extends SQLiteOpenHelper {
         List<Entry> entryList = new ArrayList<>();
 
 
-        String selectQuary = " SELECT * FROM "+TABLE_ENTRIES+" ORDER BY '"+ KEY_ID +"' DESC ";
+        String selectQuary = " SELECT * FROM "+ TABLE_ENTRIES +" ORDER BY '"+ KEY_ID + "' DESC ";
                SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuary,null);
         if (cursor.moveToFirst()){
